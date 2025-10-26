@@ -10,9 +10,42 @@ Ce dépôt contient l’application de démonstration **INNOVEO Demo** construit
 - `.github/workflows/ci.yml` : pipeline CI/CD pour builder, tester, packager et déployer l’environnement de développement.
 - `docs/` : livrables de cadrage (cahier des charges, plan d’action, cadrage fonctionnel).
 
+## Prérequis
+
+- Node.js 18+
+- Docker + Docker Compose (pour la base de données PostgreSQL)
+
 ## Démarrage rapide
 
-### Frontend
+### 1. Installer les dépendances
+
+```bash
+npm run install:all
+```
+
+### 2. Lancer l’infrastructure locale (PostgreSQL)
+
+```bash
+docker compose -f docker-compose.dev.yml up -d
+```
+
+### 3. Démarrer les applications Frontend et Backend
+
+```bash
+npm run dev
+```
+
+Le script `npm run dev` lance le backend NestJS (`npm --prefix backend run start:dev`) et le frontend Vite (`npm --prefix frontend run dev -- --host 0.0.0.0 --port 4173`) en parallèle. Utilisez `Ctrl+C` pour arrêter proprement les deux processus.
+
+### 4. Arrêter l’infrastructure locale
+
+```bash
+docker compose -f docker-compose.dev.yml down
+```
+
+### Commandes individuelles
+
+#### Frontend
 
 ```bash
 cd frontend
@@ -20,7 +53,7 @@ npm install
 npm run dev
 ```
 
-### Backend
+#### Backend
 
 ```bash
 cd backend
