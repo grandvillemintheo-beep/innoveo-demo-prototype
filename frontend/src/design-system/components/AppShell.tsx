@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 import { Sidebar } from './Sidebar';
+import { colors } from '../tokens/colors';
 
 type SidebarItem = {
   id: string;
@@ -24,8 +25,8 @@ const Shell = styled.div`
 
 const TopbarSlot = styled.header`
   grid-column: 1 / span 2;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(15, 76, 129, 0.08);
+  background: ${colors.surface};
+  border-bottom: 1px solid ${colors.border};
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -33,7 +34,7 @@ const TopbarSlot = styled.header`
 `;
 
 const Content = styled.main`
-  background: #f5f7fb;
+  background: ${colors.background};
   padding: 32px;
 `;
 

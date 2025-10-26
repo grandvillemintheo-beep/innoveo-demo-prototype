@@ -11,5 +11,36 @@
   "insights": {
     "title": "Actionable insights",
     "description": "Real-time KPIs collected from native AI agents, IoT devices and CCTV streams."
+  },
+  "alerts": {
+    "title": "Real-time alerts",
+    "loading": "Loading alerts…",
+    "empty": "No alert matches the selected filters.",
+    "error": "We could not retrieve alerts at the moment.",
+    "lastRefresh": "Updated at {{time}}",
+    "filters": {
+      "severity": "Severity",
+      "status": "Statuses",
+      "shortcuts": "Keyboard shortcuts",
+      "emptyStatuses": "Select at least one status to display alerts."
+    },
+    "severity": {
+      "all": "All severities",
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "statuses": {
+      "open": "Open",
+      "acknowledged": "Acknowledged",
+      "resolved": "Resolved"
+    },
+    "columns": {
+      "alert": "Alert",
+      "site": "Site",
+      "status": "Status",
+      "time": "Timestamp"
+    }
   }
 }

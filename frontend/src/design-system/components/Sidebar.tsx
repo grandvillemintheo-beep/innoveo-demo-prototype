@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+import { colors } from '../tokens/colors';
+
 type SidebarItem = {
   id: string;
   label: string;
@@ -12,8 +14,8 @@ interface SidebarProps {
 }
 
 const Container = styled.aside`
-  background: #0f4c81;
-  color: #ffffff;
+  background: ${colors.roles.security};
+  color: ${colors.text.inverse};
   padding: 24px 16px;
 `;
 
@@ -35,6 +37,12 @@ const StyledLink = styled(NavLink)`
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
   &.active {
     background: rgba(255, 255, 255, 0.2);
   }

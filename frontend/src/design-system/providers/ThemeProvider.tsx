@@ -1,13 +1,10 @@
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { ReactNode } from 'react';
 
+import { colors } from '../tokens/colors';
+
 const theme = {
-  colors: {
-    primary: '#0f4c81',
-    secondary: '#1b98e0',
-    background: '#f5f7fb',
-    text: '#0d1b2a'
-  }
+  colors
 };
 
 interface ThemeProviderProps {

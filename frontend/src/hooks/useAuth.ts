@@ -13,7 +13,8 @@ export const useAuth = () => {
     pendingEmail,
     challengeId,
     initialize,
-    isHydrated
+    isHydrated,
+    accessToken
   } = useAuthStore();
   const { t } = useTranslation('auth');
 
@@ -28,6 +29,7 @@ export const useAuth = () => {
     initialize,
     isHydrated,
     stage,
+    accessToken,
     isAuthenticated: stage === 'verified',
     labels: {
       title: t('title'),

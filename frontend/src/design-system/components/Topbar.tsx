@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { colors } from '../tokens/colors';
 import { Button } from './controls/Button';
 
 interface TopbarProps {
@@ -22,8 +23,8 @@ const Identity = styled.div`
 export const Topbar = ({ user, onLogout }: TopbarProps) => (
   <Wrapper>
     <Identity>
-      <span style={{ fontSize: '1rem', fontWeight: 600 }}>Innoveo Experience</span>
-      <span style={{ fontSize: '0.9rem', color: '#4f5d75' }}>
+      <span style={{ fontSize: '1rem', fontWeight: 600, color: colors.text.primary }}>Innoveo Experience</span>
+      <span style={{ fontSize: '0.9rem', color: colors.text.secondary }}>
         {user ? `Bienvenue ${user.displayName ?? user.email ?? ''}` : 'Connexion requise'}
       </span>
     </Identity>

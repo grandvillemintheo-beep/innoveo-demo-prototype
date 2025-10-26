@@ -11,5 +11,36 @@
   "insights": {
     "title": "Insights actionnables",
     "description": "KPIs temps réel agrégés depuis les agents IA natifs, les IoT et les flux CCTV."
+  },
+  "alerts": {
+    "title": "Alertes en temps réel",
+    "loading": "Chargement des alertes…",
+    "empty": "Aucune alerte ne correspond aux filtres actifs.",
+    "error": "Impossible de charger les alertes pour le moment.",
+    "lastRefresh": "Mise à jour à {{time}}",
+    "filters": {
+      "severity": "Criticité",
+      "status": "Statuts",
+      "shortcuts": "Raccourcis clavier",
+      "emptyStatuses": "Sélectionnez au moins un statut pour afficher les alertes."
+    },
+    "severity": {
+      "all": "Toutes les criticités",
+      "critical": "Critique",
+      "high": "Élevée",
+      "medium": "Modérée",
+      "low": "Faible"
+    },
+    "statuses": {
+      "open": "Ouverte",
+      "acknowledged": "Confirmée",
+      "resolved": "Résolue"
+    },
+    "columns": {
+      "alert": "Alerte",
+      "site": "Site",
+      "status": "Statut",
+      "time": "Horodatage"
+    }
   }
 }
