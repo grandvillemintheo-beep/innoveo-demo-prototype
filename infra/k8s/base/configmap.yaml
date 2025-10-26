@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: innoveo-config
+  namespace: innoveo-demo
+  labels:
+    app.kubernetes.io/part-of: innoveo
+    app.kubernetes.io/component: configuration
+data:
+  API_BASE_URL: "https://api.innoveo-demo.local"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector.innoveo-demo:4318"

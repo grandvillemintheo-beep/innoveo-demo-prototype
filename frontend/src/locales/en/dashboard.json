@@ -1,0 +1,15 @@
+{
+  "overview": {
+    "title": "Operations overview",
+    "subtitle": "Hello {{name}}, here is what matters today.",
+    "items": {
+      "security": "Active incidents monitored via Smart Security",
+      "business": "Revenue uplift opportunities identified",
+      "experience": "Experience quality across your sites"
+    }
+  },
+  "insights": {
+    "title": "Actionable insights",
+    "description": "Real-time KPIs collected from native AI agents, IoT devices and CCTV streams."
+  }
+}

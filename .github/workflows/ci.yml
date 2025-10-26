@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "work"]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [frontend, backend]
+    defaults:
+      run:
+        working-directory: ${{ matrix.service }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ${{ matrix.service }}/package-lock.json
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+      - name: Lint
+        run: npm run lint
+      - name: Run unit tests
+        run: |
+          if [ -f package.json ] && npm run | grep -q "test"; then
+            npm test -- --watch=false
+          else
+            echo "No tests configured"
+          fi
+      - name: Build
+        run: npm run build
+
+  build-images:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build backend image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}/demo-backend:${{ github.sha }} backend
+      - name: Build frontend image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}/demo-frontend:${{ github.sha }} frontend
+      - name: Push images
+        run: |
+          docker push ghcr.io/${{ github.repository }}/demo-backend:${{ github.sha }}
+          docker push ghcr.io/${{ github.repository }}/demo-frontend:${{ github.sha }}
+
+  deploy-dev:
+    if: github.ref == 'refs/heads/main'
+    needs: build-images
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+      - name: Render manifests
+        run: |
+          cd infra/k8s/overlays/dev
+          kubectl kustomize . > /tmp/dev.yaml
+      - name: Apply manifests
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.DEV_KUBE_CONFIG }}
+        run: |
+          echo "$KUBE_CONFIG_DATA" | base64 --decode > kubeconfig
+          kubectl --kubeconfig=kubeconfig apply -f /tmp/dev.yaml

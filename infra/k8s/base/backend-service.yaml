@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: innoveo-demo
+  labels:
+    app: innoveo-backend
+spec:
+  selector:
+    app: innoveo-backend
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP

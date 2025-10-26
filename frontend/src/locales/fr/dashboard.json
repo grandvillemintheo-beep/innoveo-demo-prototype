@@ -1,0 +1,15 @@
+{
+  "overview": {
+    "title": "Vue d'ensemble des opérations",
+    "subtitle": "Bonjour {{name}}, voici vos priorités du jour.",
+    "items": {
+      "security": "Incidents actifs surveillés via Smart Security",
+      "business": "Opportunités business détectées",
+      "experience": "Qualité d'expérience sur vos sites"
+    }
+  },
+  "insights": {
+    "title": "Insights actionnables",
+    "description": "KPIs temps réel agrégés depuis les agents IA natifs, les IoT et les flux CCTV."
+  }
+}
