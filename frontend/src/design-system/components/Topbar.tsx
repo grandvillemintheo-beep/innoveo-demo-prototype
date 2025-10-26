@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Button } from './controls/Button';
 
 interface TopbarProps {
-  user: { displayName: string } | null;
+  user: { displayName?: string | null; email?: string | null } | null;
   onLogout: () => void;
 }
 
@@ -24,7 +24,7 @@ export const Topbar = ({ user, onLogout }: TopbarProps) => (
     <Identity>
       <span style={{ fontSize: '1rem', fontWeight: 600 }}>Innoveo Experience</span>
       <span style={{ fontSize: '0.9rem', color: '#4f5d75' }}>
-        {user ? `Bienvenue ${user.displayName}` : 'Connexion requise'}
+        {user ? `Bienvenue ${user.displayName ?? user.email ?? ''}` : 'Connexion requise'}
       </span>
     </Identity>
     {user ? <Button onClick={onLogout}>Déconnexion</Button> : null}

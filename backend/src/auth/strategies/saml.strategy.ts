@@ -20,7 +20,8 @@ export class SamlStrategy extends PassportStrategy(Strategy, 'saml') {
     return {
       id: profile?.nameID,
       email: profile?.email || profile?.nameID,
-      roles: profile?.roles ?? []
+      roles: profile?.roles ?? [],
+      displayName: profile?.displayName ?? profile?.cn ?? profile?.email ?? profile?.nameID
     };
   }
 }

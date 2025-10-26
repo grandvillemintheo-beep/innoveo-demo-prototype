@@ -10,7 +10,7 @@ export const DashboardPage = () => {
   return (
     <div style={{ display: 'grid', gap: 24 }}>
       <Card title={t('overview.title')}>
-        <p>{t('overview.subtitle', { name: user?.displayName ?? 'Guest' })}</p>
+        <p>{t('overview.subtitle', { name: user?.displayName ?? user?.email ?? 'Guest' })}</p>
         <ul>
           <li>{t('overview.items.security')}</li>
           <li>{t('overview.items.business')}</li>

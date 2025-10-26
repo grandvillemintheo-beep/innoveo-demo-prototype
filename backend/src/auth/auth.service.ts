@@ -76,7 +76,8 @@ export class AuthService {
       {
         sub: payload.id,
         email: payload.email,
-        roles: payload.roles ?? []
+        roles: payload.roles ?? [],
+        displayName: payload.displayName ?? payload.email?.split('@')[0] ?? ''
       },
       {
         secret: this.configService.get<string>('auth.jwtSecret'),

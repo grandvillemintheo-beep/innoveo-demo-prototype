@@ -20,6 +20,12 @@
 4. Déployer l’infrastructure de dev sur Kubernetes (namespace dédié) + bases de données managées.
 5. Configurer l’observabilité (logs, metrics, tracing) et la sécurité (SSO, MFA, secrets).
 
+### Prochaine étape recommandée
+- **Préparer la MR/PR pour revue** : renseigner dans la description les objectifs du sprint en cours, la liste des tests exécutés (unitaires, intégration, lint) et les impacts sur les couches front, back et infra.
+- **Anticiper l’ajustement des pipelines CI/CD** : vérifier que les jobs de tests unitaires, linters et les contrôles de qualité (coverage, SonarQube) s’exécutent automatiquement sur la branche avant revue.
+- **Planifier la prochaine tâche du sprint** : prioriser la suite des fondations techniques (finalisation de l’architecture front avec le design system ou avancée sur l’authentification backend).
+- **Maintenir la coordination agile** : partager l’avancement et les points de blocage lors de la prochaine cérémonie (daily ou sprint review) afin d’aligner PO, QA, DevOps et équipe de développement.
+
 ## 4. Développement itératif (Semaines 6-15)
 Chaque sprint comprend : grooming, implémentation, tests, revue, rétrospective.
 
