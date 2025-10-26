@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 
 import configuration from '../config/configuration';
-import { Content } from './entities/content.entity';
+import { Content } from '../content/entities/content.entity';
 import { User } from './entities/user.entity';
 
 const config = configuration();

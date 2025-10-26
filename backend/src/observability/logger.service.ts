@@ -22,7 +22,17 @@ export class LoggerService implements NestLoggerService {
   }
 
   verbose?(message: any, context?: any) {
-    this.logger.trace?.(context ?? {}, message);
+    const payload = context ?? {};
+    const loggerWithTrace = this.logger as {
+      trace?: (ctx: any, msg?: any) => void;
+    };
+
+    if (typeof loggerWithTrace.trace === 'function') {
+      loggerWithTrace.trace(payload, message);
+      return;
+    }
+
+    this.logger.debug?.(payload, message);
   }
 
   info(message: any, context?: any) {
