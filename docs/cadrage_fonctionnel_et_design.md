@@ -175,9 +175,13 @@
 
 ## 10. Validation et prochaines étapes
 1. Tester les maquettes haute fidélité auprès de 5 utilisateurs par persona (20 tests).
+   - ✅ Synthèse consolidée : voir `docs/tests_utilisateurs_maquettes.md`.
 2. Finaliser les AAD (Architecture Decision Records) pour chaque brique critique (streaming, data, sécurité).
+   - ✅ ADR disponibles : `docs/adr/0001-architecture-streaming-video.md`, `docs/adr/0002-strategie-donnees.md`, `docs/adr/0003-authentification-hybride.md`.
 3. Préparer la backlog détaillée Sprint 1 (tâches techniques, critères d'acceptation).
+   - ✅ Backlog Sprint 1 : `docs/sprint_1_backlog.md`.
 4. Définir les KPIs de suivi projet (burndown, vélocité, adoption early users).
+   - ✅ Tableau de référence : `docs/kpi_suivi.md`.
 5. Mettre en place un rituel de revue de design bi-hebdomadaire (vision produit + tech).
 
 ---

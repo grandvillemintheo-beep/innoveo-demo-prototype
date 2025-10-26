@@ -3,8 +3,8 @@
 This directory documents the automation backing the Innoveo demo platform.
 
 - `.github/workflows/ci.yml` builds and tests both frontend and backend applications,
-  produces Docker images, and deploys the development overlay to the Kubernetes cluster
-  referenced by `DEV_KUBE_CONFIG`.
+  captures unit test coverage as artifacts, produces Docker images, and deploys the
+  development overlay to the Kubernetes cluster referenced by `DEV_KUBE_CONFIG`.
 - Future workflows can extend this foundation for security scanning, database migrations,
   and production promotion.
 

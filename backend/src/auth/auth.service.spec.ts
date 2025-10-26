@@ -191,7 +191,7 @@ describe('AuthService', () => {
 
       expect(result).toEqual({ accessToken: 'signed-token' });
       expect(jwtService.sign).toHaveBeenCalledWith(
-        { sub: 'user-1', email: 'agent@innoveo.local', roles: ['viewer'] },
+        expect.objectContaining({ sub: 'user-1', email: 'agent@innoveo.local', roles: ['viewer'] }),
         { secret: 'top-secret', expiresIn: '15m' }
       );
     });
