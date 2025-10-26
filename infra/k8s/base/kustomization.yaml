@@ -4,7 +4,12 @@ resources:
   - namespace.yaml
   - backend-deployment.yaml
   - backend-service.yaml
+  - backend-networkpolicy.yaml
   - frontend-deployment.yaml
   - frontend-service.yaml
   - postgres-secret.yaml
+  - postgres-service.yaml
   - configmap.yaml
+  - otel-collector-configmap.yaml
+  - otel-collector-deployment.yaml
+  - otel-collector-service.yaml

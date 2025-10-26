@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+  namespace: innoveo-demo
+  labels:
+    app: otel-collector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-collector
+  template:
+    metadata:
+      labels:
+        app: otel-collector
+    spec:
+      containers:
+        - name: otel-collector
+          image: otel/opentelemetry-collector-contrib:0.96.0
+          args:
+            - "--config=/etc/otel-collector/collector.yaml"
+          ports:
+            - containerPort: 4318
+              name: otlp-http
+          envFrom:
+            - configMapRef:
+                name: innoveo-config
+          volumeMounts:
+            - name: collector-config
+              mountPath: /etc/otel-collector
+      volumes:
+        - name: collector-config
+          configMap:
+            name: otel-collector-config
+            items:
+              - key: collector.yaml
+                path: collector.yaml

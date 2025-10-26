@@ -65,8 +65,10 @@ npm run start:dev
 ### Infrastructure locale (Kubernetes)
 
 ```bash
-kubectl apply -k infra/k8s/overlays/dev
+./infra/scripts/bootstrap-dev.sh <context-name>
 ```
+
+Ce script bascule sur le contexte kubeconfig fourni (par défaut `dev`), applique les manifests Kustomize et attend que les déploiements `backend`, `frontend` et `otel-collector` soient opérationnels. Les variables sensibles sont chargées via le Secret `postgres-credentials`, ce qui facilite le branchement à une base PostgreSQL managée.
 
 ## Documents
 - [Cahier des charges](docs/cahier_des_charges.md)

@@ -15,11 +15,21 @@ spec:
       labels:
         app: innoveo-frontend
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       containers:
         - name: frontend
           image: ghcr.io/innoveo/demo-frontend:latest
           ports:
             - containerPort: 4173
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: VITE_API_BASE_URL
               valueFrom:

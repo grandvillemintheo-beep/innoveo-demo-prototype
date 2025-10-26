@@ -13,5 +13,7 @@ Secrets required:
 | Secret | Description |
 | ------ | ----------- |
 | `DEV_KUBE_CONFIG` | Base64-encoded kubeconfig for the development cluster namespace. |
+| `DEV_POSTGRES_URL` | Connection string (including credentials) for the managed PostgreSQL instance. |
+| `DEV_POSTGRES_CA` | Base64-encoded CA certificate if the managed instance enforces TLS verification. |
 
 Images are pushed to `ghcr.io/<org>/<repo>/demo-{frontend,backend}`.

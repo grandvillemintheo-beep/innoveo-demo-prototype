@@ -4,12 +4,15 @@ export default () => ({
     port: parseInt(process.env.PORT ?? '3000', 10)
   },
   database: {
+    url: process.env.POSTGRES_URL,
     host: process.env.POSTGRES_HOST ?? 'localhost',
     port: parseInt(process.env.POSTGRES_PORT ?? '5432', 10),
     username: process.env.POSTGRES_USER ?? 'postgres',
     password: process.env.POSTGRES_PASSWORD ?? 'postgres',
     database: process.env.POSTGRES_DB ?? 'innoveo',
-    ssl: process.env.POSTGRES_SSL === 'true'
+    ssl: process.env.POSTGRES_SSL === 'true',
+    sslMode: process.env.POSTGRES_SSL_MODE ?? 'require',
+    caCertificate: process.env.POSTGRES_CA_CERT
   },
   auth: {
     jwtSecret: process.env.JWT_SECRET ?? 'change-me',
