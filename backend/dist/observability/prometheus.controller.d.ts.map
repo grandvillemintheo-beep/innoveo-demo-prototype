@@ -1,0 +1,1 @@
+{"version":3,"file":"prometheus.controller.d.ts","sourceRoot":"","sources":["../../src/observability/prometheus.controller.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,gBAAgB,EAAE,MAAM,qBAAqB,CAAC;AAEvD,qBACa,iBAAiB;IAChB,OAAO,CAAC,QAAQ,CAAC,SAAS;gBAAT,SAAS,EAAE,gBAAgB;IAIlD,OAAO;CAGd"}
